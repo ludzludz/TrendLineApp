@@ -1,0 +1,70 @@
+<style>
+/* Базовый контейнер табов */
+
+.tab {
+  min-width: 600px;
+  max-width: 600px;
+  padding: 0px;
+  margin: 0 auto;
+}
+/* стили секций с содержанием */
+.tab section {
+  display: none;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #a1a1a1;
+  border-radius: 0 10px  10px 10px;
+}
+.tab input {
+  display: none;
+}
+/* стили вкладок (табов) */
+.tab label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 4px 15px;
+  font-weight: 500;
+  text-align: center;
+  color: #000000;
+  border: 1px solid #a1a1a1;
+  background: #f1f1f1;
+  border-radius: 3px 3px 0 0;
+}
+
+/* изменения стиля заголовков вкладок при наведении */
+.tab label:hover {
+  color: #888;
+  cursor: pointer;
+}
+/* стили для активной вкладки */
+.tab input:checked + label {
+  color: #555;
+  border: 1px solid #a1a1a1;
+  border-bottom: 1px solid #fff;
+  background: #fff;
+}
+/* активация секций с помощью переключателя :checked */
+#tab11:checked ~ #content11,
+#tab22:checked ~ #content22,
+#tab33:checked ~ #content33,
+#tab44:checked ~ #content44,
+#tab55:checked ~ #content55{
+  display: block;
+}
+/* медиа запросы для различных типов носителей */
+@media screen and (max-width: 680px) {
+  .tab label {
+    font-size: 0;
+  }
+
+  .tab label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .tab label {
+    padding: 15px;
+  }
+}
+</style>

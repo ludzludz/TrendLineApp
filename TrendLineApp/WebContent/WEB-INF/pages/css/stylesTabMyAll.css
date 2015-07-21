@@ -1,0 +1,75 @@
+<style>
+/* Базовый контейнер табов */
+
+.tabs {
+  min-width: 320px;
+  max-width: 320px;
+  padding: 0px;
+  margin: 0 auto;
+}
+.tabs input{
+    max-width: 100%;
+  }
+
+.tabs input[type="radio"] {
+      display: none;
+ }
+/* стили секций с содержанием */
+.tabs section {
+  display: none;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #a1a1a1;
+  border-radius: 0 10px  10px 10px;
+}
+
+/* стили вкладок (табов) */
+.tabs label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 4px 15px;
+  font-weight: 500;
+  text-align: center;
+  color: #000000;
+  border: 1px solid #a1a1a1;
+  background: #f1f1f1;
+  border-radius: 3px 3px 0 0;
+}
+
+/* изменения стиля заголовков вкладок при наведении */
+.tabs label:hover {
+  color: #888;
+  cursor: pointer;
+}
+/* стили для активной вкладки */
+.tabs input:checked + label {
+  color: #555;
+  border: 1px solid #a1a1a1;
+  border-bottom: 1px solid #fff;
+  background: #fff;
+}
+/* активация секций с помощью переключателя :checked */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5{
+  display: block;
+}
+/* медиа запросы для различных типов носителей */
+@media screen and (max-width: 680px) {
+  .tabs label {
+    font-size: 0;
+  }
+
+  .tabs label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .tabs label {
+    padding: 15px;
+  }
+}
+</style>
