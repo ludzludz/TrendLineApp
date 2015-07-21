@@ -14,22 +14,11 @@ public class CompanyManagerImpl implements CompanyManager {
 
 	@Autowired
 	CompanyDAO dao;
-	
+
 	CompanyStock stock;
 
 	@Override
 	public List<Company> getAllCompanies() {
 		return dao.getAllCompanies();
-	}
-
-	@Override
-	public void setStock(String companyShortcut) {
-		stock.setCompany(companyShortcut);
-	}
-
-	@Override
-	public String getPrice() {
-		// TODO Auto-generated method stub
-		return stock.getPrice().toString();
 	}
 }

@@ -5,6 +5,6 @@ import java.util.List;
 import com.cjp.model.Company;
 
 public interface CompanyDAO {
-	public List<Company> getAllCompanies();	
-	
+	public List<Company> getAllCompanies();
+
 }

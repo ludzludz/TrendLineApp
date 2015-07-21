@@ -24,6 +24,6 @@ public class CompanyDAOImpl implements CompanyDAO {
 		companies.add(company2);
 
 		return companies;
-	}	
-	
+	}
+
 }

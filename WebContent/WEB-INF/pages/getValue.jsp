@@ -9,9 +9,10 @@
 </head>
 
 <body bgcolor="#77dd77">
+	Enter shortcut of company
 	<form action="displayName" method="post">
 		<input name="companyShortcut">
-		<button>Send my greetings</button>
+		<button>Submit</button>
 	</form>
 </body>
 </html>

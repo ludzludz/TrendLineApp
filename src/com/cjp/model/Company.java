@@ -7,7 +7,7 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "EmployeeVO [Shortcut=" + shortcut + "]";
+		return "Company [Shortcut=" + shortcut + "]";
 	}
 
 	public String getShortcut() {

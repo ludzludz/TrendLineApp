@@ -6,8 +6,4 @@ import com.cjp.model.Company;
 
 public interface CompanyManager {
 	public List<Company> getAllCompanies();
-	
-	public void setStock(String companyShortcut);
-	
-	public String getPrice();
 }

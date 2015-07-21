@@ -9,15 +9,6 @@
 </head>
 
 <body bgcolor="#77dd77">
-
-	<%--<form method="POST">
-    <input type="text" name="a" value="${a}"/>
-    +
-    <input type="text" name="b" value="${b}"/>
-    = ${result} <br>
-    <input type="submit">
-</form>--%>
-
 	<table align="center">
 		<tr>
 			<td><div class="tabs">
@@ -41,7 +32,7 @@
 						</p>
 					</section>
 				</div></td>
-			<td>Main page</td>
+			<td><h2>${name}</h2></td>
 		</tr>
 		<tr>
 			<td><div class="tabList">
@@ -63,7 +54,11 @@
 						id="tab44" type="radio" name="tab"> <label for="tab44"
 						title="Charts">Charts</label> <input id="tab55" type="radio"
 						name="tab"> <label for="tab55" title="Quotations">Quotations</label>
-					<section id="content33">Basic Data</section>
+					<section id="content33">
+						<br> Name: ${name} <br> Price: ${price} <br>
+						Change: ${change} <br> Peg: ${peg} <br> Dividend:
+						${dividend} <br>
+					</section>
 					<section id="content44">
 						<p>Charts</p>
 					</section>
