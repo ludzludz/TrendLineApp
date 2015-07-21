@@ -51,9 +51,8 @@
 						title="Income">Income</label>
 					<section id="content111">
 						List of companies:<br>
-						<c:forEach var="company" items="${companyList}">
-							<c:out value="${company}" default="none" />
-							<br>
+						<c:forEach items="${companies}" var="company">
+							${company.name} ${company.shortcut}<br>
 						</c:forEach>
 					</section>
 					<section id="content222">Sort by income</section>
@@ -74,11 +73,5 @@
 				</div></td>
 		</tr>
 	</table>
-
-	<form action="aa" method="post">
-		<input name="say" value="Hi"> <input name="to" value="Mom">
-		<button>Send my greetings</button>
-	</form>
-
 </body>
 </html>
