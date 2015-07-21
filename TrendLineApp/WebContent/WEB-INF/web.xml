@@ -5,9 +5,11 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>    
+    </listener>  
+      
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>
@@ -15,10 +17,10 @@
         </servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
-        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
   
 </web-app>

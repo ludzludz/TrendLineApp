@@ -75,10 +75,11 @@
 		</tr>
 	</table>
 
-	<form action="aa" method="post">
-		<input name="say" value="Hi"> <input name="to" value="Mom">
-		<button>Send my greetings</button>
-	</form>
-
+	<form action="calc/aa" method="post">
+  <input name="say" value="Hi">
+  <input name="to" value="Mom">
+  <button>Send my greetings</button>
+</form>
+	${aaa}
 </body>
 </html>
