@@ -5,6 +5,35 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load('visualization', '1.0', {
+        'packages' : [ 'corechart' ]
+    });
+
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+ 
+        var data = google.visualization.arrayToDataTable([
+                                                              ['Data', 'Quotations'],
+                                                              <c:forEach items="${dataList}" var="entry">
+                                                                  [ '${entry.key}', ${entry.value} ],
+                                                              </c:forEach>
+                                                        ]);
+        var options = {
+            'title' : 'Quotations of the ${name}',
+            is3D : true,
+            pieSliceText: 'label',
+            tooltip :  {showColorCode: true},
+            'width' : 500,
+            'height' : 400
+        };
+ 
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(data, options);
+    }
+</script>
 <title>Title</title>
 </head>
 
@@ -60,7 +89,9 @@
 						${dividend} <br>
 					</section>
 					<section id="content44">
-						<p>Charts</p>
+						<div style="width: 500px;">
+							<div id="columnchart_values"></div>
+						</div>
 					</section>
 					<section id="content55">
 						<p>Quotations</p>

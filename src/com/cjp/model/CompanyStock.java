@@ -8,7 +8,7 @@ import yahoofinance.YahooFinance;
 
 public class CompanyStock {
 
-	Stock stock = null;
+	private Stock stock = null;
 
 	public void setCompany(String companyShortcut) {
 
