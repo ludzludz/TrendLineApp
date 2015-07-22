@@ -72,7 +72,9 @@
 					<section id="content111">
 						List of companies:<br>
 						<c:forEach items="${companies}" var="company">
-							${company.name} ${company.shortcut}<br>
+							<a href="/TrendLineApp/${company.shortcut}">${company.name}
+								${company.shortcut}</a>
+							<br>
 						</c:forEach>
 					</section>
 					<section id="content222">Sort by income</section>

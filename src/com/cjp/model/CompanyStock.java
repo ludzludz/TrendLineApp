@@ -8,10 +8,9 @@ import yahoofinance.YahooFinance;
 
 public class CompanyStock {
 
-	private Stock stock = null;
+	Stock stock = null;
 
 	public void setCompany(String companyShortcut) {
-
 		try {
 			stock = YahooFinance.get(companyShortcut);
 		} catch (IOException e) {

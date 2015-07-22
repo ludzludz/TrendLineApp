@@ -8,5 +8,5 @@ import com.cjp.model.Company;
 public interface CompanyManager {
 	public List<Company> getAllCompanies();
 
-	public List<KeyValue> getChartData();
+	List<KeyValue> getChartData();
 }

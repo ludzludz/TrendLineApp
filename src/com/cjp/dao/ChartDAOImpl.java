@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.cjp.dao.ChartData.KeyValue;
+
 @Repository
 public class ChartDAOImpl implements ChartDAO {
 

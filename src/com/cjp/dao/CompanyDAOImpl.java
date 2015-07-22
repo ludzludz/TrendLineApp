@@ -3,7 +3,6 @@ package com.cjp.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.cjp.model.Company;
