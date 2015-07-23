@@ -28,4 +28,8 @@ public class CompanyManagerImpl implements CompanyManager {
 	public List<KeyValue> getChartData() {
 		return chartDao.getChartData();
 	}
+
+	public int getSeletedCompanies(String selectedCompanyName) {
+		return 1;
+	}
 }
