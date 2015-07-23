@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TrendLineApp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TrendLineApp-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="TrendLineApp:war exploded" />
+    </root>
+  </artifact>
+</component>

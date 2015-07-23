@@ -1,5 +1,6 @@
 package com.cjp.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,13 @@ public class CompanyManagerImpl implements CompanyManager {
 		return chartDao.getChartData();
 	}
 
-	public int getSeletedCompanies(String selectedCompanyName) {
-		return 1;
+	@Override
+	public List<Company> getSelectedCompanies(String selectedCompanyName) {
+		List<Company> selectedCompany = new ArrayList<>();
+		for(Company company : dao.getAllCompanies()){
+			if(company.getName().toLowerCase().contains(selectedCompanyName.toLowerCase()))
+				selectedCompany.add(company);
+		}
+		return selectedCompany;
 	}
 }

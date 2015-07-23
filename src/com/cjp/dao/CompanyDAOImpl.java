@@ -23,6 +23,26 @@ public class CompanyDAOImpl implements CompanyDAO {
 		company2.setName("Google Inc.");
 		companies.add(company2);
 
+		Company company3 = new Company();
+		company3.setShortcut("MSFT");
+		company3.setName("Microsoft Corporation");
+		companies.add(company3);
+
+		Company company4 = new Company();
+		company4.setShortcut("ORCL");
+		company4.setName("Oracle Corporation");
+		companies.add(company4);
+
+		Company company5 = new Company();
+		company5.setShortcut("IBM");
+		company5.setName("International Business Machines Corporation");
+		companies.add(company5);
+
+		Company company6 = new Company();
+		company6.setShortcut("AAPLEEEEE");
+		company6.setName("Apple Inc. TO KUPA ");
+		companies.add(company6);
+
 		return companies;
 	}
 

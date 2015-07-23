@@ -46,20 +46,13 @@
 						name="tabs"> <label for="tab2" title="My">My</label>
 					<section id="content1">
 						<p>
-						<form method="POST">
-							<input type="text" name="search" value="${search}" /> <input
+						<form action="/TrendLineApp/" method="POST">
+						<input type="text" name="search" value="${search}" /> <input
 								type="submit" value="Search">
 						</form>
 						</p>
 					</section>
-					<section id="content2">
-						<p>
-						<form method="POST">
-							<input type="text" name="search" value="${search}" /> <input
-								type="submit" value="Search">
-						</form>
-						</p>
-					</section>
+
 				</div></td>
 			<td><h2>${name}</h2></td>
 		</tr>

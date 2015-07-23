@@ -7,6 +7,6 @@ import com.cjp.model.Company;
 
 public interface CompanyManager {
 	public List<Company> getAllCompanies();
-
-	List<KeyValue> getChartData();
+	public List<KeyValue> getChartData();
+	public List<Company> getSelectedCompanies (String selectedCompanyName);
 }
