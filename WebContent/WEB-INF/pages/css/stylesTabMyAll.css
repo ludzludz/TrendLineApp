@@ -1,5 +1,5 @@
 <style>
-/* Базовый контейнер табов */
+/* Đ‘Đ°Đ·ĐľĐ˛Ń‹Đą ĐşĐľĐ˝Ń‚ĐµĐąĐ˝ĐµŃ€ Ń‚Đ°Đ±ĐľĐ˛ */
 
 .tabs {
   min-width: 320px;
@@ -14,7 +14,7 @@
 .tabs input[type="radio"] {
       display: none;
  }
-/* стили секций с содержанием */
+/* Ń�Ń‚Đ¸Đ»Đ¸ Ń�ĐµĐşŃ†Đ¸Đą Ń� Ń�ĐľĐ´ĐµŃ€Đ¶Đ°Đ˝Đ¸ĐµĐĽ */
 .tabs section {
   display: none;
   padding: 15px;
@@ -23,7 +23,7 @@
   border-radius: 0 10px  10px 10px;
 }
 
-/* стили вкладок (табов) */
+/* Ń�Ń‚Đ¸Đ»Đ¸ Đ˛ĐşĐ»Đ°Đ´ĐľĐş (Ń‚Đ°Đ±ĐľĐ˛) */
 .tabs label {
   display: inline-block;
   margin: 0 0 -1px;
@@ -36,19 +36,19 @@
   border-radius: 3px 3px 0 0;
 }
 
-/* изменения стиля заголовков вкладок при наведении */
+/* Đ¸Đ·ĐĽĐµĐ˝ĐµĐ˝Đ¸ŃŹ Ń�Ń‚Đ¸Đ»ŃŹ Đ·Đ°ĐłĐľĐ»ĐľĐ˛ĐşĐľĐ˛ Đ˛ĐşĐ»Đ°Đ´ĐľĐş ĐżŃ€Đ¸ Đ˝Đ°Đ˛ĐµĐ´ĐµĐ˝Đ¸Đ¸ */
 .tabs label:hover {
   color: #888;
   cursor: pointer;
 }
-/* стили для активной вкладки */
+/* Ń�Ń‚Đ¸Đ»Đ¸ Đ´Đ»ŃŹ Đ°ĐşŃ‚Đ¸Đ˛Đ˝ĐľĐą Đ˛ĐşĐ»Đ°Đ´ĐşĐ¸ */
 .tabs input:checked + label {
   color: #555;
   border: 1px solid #a1a1a1;
   border-bottom: 1px solid #fff;
   background: #fff;
 }
-/* активация секций с помощью переключателя :checked */
+/* Đ°ĐşŃ‚Đ¸Đ˛Đ°Ń†Đ¸ŃŹ Ń�ĐµĐşŃ†Đ¸Đą Ń� ĐżĐľĐĽĐľŃ‰ŃŚŃŽ ĐżĐµŃ€ĐµĐşĐ»ŃŽŃ‡Đ°Ń‚ĐµĐ»ŃŹ :checked */
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
@@ -56,7 +56,7 @@
 #tab5:checked ~ #content5{
   display: block;
 }
-/* медиа запросы для различных типов носителей */
+/* ĐĽĐµĐ´Đ¸Đ° Đ·Đ°ĐżŃ€ĐľŃ�Ń‹ Đ´Đ»ŃŹ Ń€Đ°Đ·Đ»Đ¸Ń‡Đ˝Ń‹Ń… Ń‚Đ¸ĐżĐľĐ˛ Đ˝ĐľŃ�Đ¸Ń‚ĐµĐ»ĐµĐą */
 @media screen and (max-width: 680px) {
   .tabs label {
     font-size: 0;

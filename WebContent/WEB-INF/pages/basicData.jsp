@@ -26,7 +26,7 @@
             is3D : true,
             pieSliceText: 'label',
             tooltip :  {showColorCode: true},
-            'width' : 500,
+            'width' : 400,
             'height' : 400
         };
  
@@ -86,20 +86,23 @@
 						title="Charts">Charts</label> <input id="tab55" type="radio"
 						name="tab"> <label for="tab55" title="Quotations">Quotations</label>
 					<section id="content33">
-						<br> Name: ${name} <br> Price: ${price} <br>
-						Change: ${change} <br> Peg: ${peg} <br> Dividend:
-						${dividend} <br>
+						<br> Name: ${finance.name} <br> Price: ${finance.price}
+						<br> Peg: ${finance.peg} <br> Currency:
+						${finance.currency} <br>
 					</section>
 					<section id="content44">
-						<div style="width: 500px;">
-							<div id="columnchart_values"></div>
-						</div>
+						<div id="columnchart_values"></div>
+						<form method="POST">
+							<button type="submit" value="period" name="twoDays">Two
+								days</button>
+							<button type="submit" value="period" name="week">Week</button>
+							<button type="submit" value="period" name="month">Month</button>
+						</form>
 					</section>
-					<section id="content55">
-						<p>Quotations</p>
-					</section>
+					<section id="content55"></section>
 				</div></td>
 		</tr>
 	</table>
+
 </body>
 </html>

@@ -8,14 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cjp.dao.ChartData.KeyValue;
 import com.cjp.service.CompanyManager;
-
-import yahoofinance.Stock;
-import yahoofinance.YahooFinance;
+import com.cjp.service.FinanceYahooService;
 
 @Controller
 public class CompanyController {
@@ -23,51 +19,26 @@ public class CompanyController {
 	@Autowired
 	CompanyManager manager;
 
-	@RequestMapping(value = "basicData", method = RequestMethod.GET)
-	public String getAllCompanies(Model model) {
-		model.addAttribute("companies", manager.getAllCompanies());
-		return "basicData";
-	}
+	FinanceYahooService finance;
 
 	@RequestMapping(value = "/")
-	public String getCalc(Model model) {
-		return "getValue";
-	}
-
-	@RequestMapping(value = "displayName")
-	public String displayInformationCompany(@RequestParam("companyShortcut") String companyShortcut, Model model) {
-		Stock stock = null;
-		try {
-			stock = YahooFinance.get(companyShortcut);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public String displayInformationCompany(Model model) throws IOException {
+		
+		finance = new FinanceYahooService("LXFT");
 		model.addAttribute("companies", manager.getAllCompanies());
-		model.addAttribute("name", stock.getName());
-		model.addAttribute("price", stock.getQuote().getPrice().toString());
-		model.addAttribute("change", stock.getQuote().getChangeInPercent().toString());
-		model.addAttribute("peg", stock.getStats().getPeg().toString());
-		model.addAttribute("dividend", stock.getDividend().getAnnualYieldPercent().toString());
-		List<KeyValue> dataList = manager.getChartData();
+		model.addAttribute("finance", finance);
+		List<KeyValue> dataList = finance.dateAndQuoteForWeek();
 		model.addAttribute("dataList", dataList);
 		return "basicData";
 	}
 
 	@RequestMapping(value = "{ticker}")
-	public String display(@PathVariable("ticker") String ticker, Model model) {
-		Stock stock = null;
-		try {
-			stock = YahooFinance.get(ticker);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public String display(@PathVariable("ticker") String ticker, Model model) throws IOException {
+
+		finance = new FinanceYahooService(ticker);
 		model.addAttribute("companies", manager.getAllCompanies());
-		model.addAttribute("name", stock.getName());
-		model.addAttribute("price", stock.getQuote().getPrice().toString());
-		model.addAttribute("change", stock.getQuote().getChangeInPercent().toString());
-		model.addAttribute("peg", stock.getStats().getPeg().toString());
-		model.addAttribute("dividend", stock.getDividend().getAnnualYieldPercent().toString());
-		List<KeyValue> dataList = manager.getChartData();
+		model.addAttribute("finance", finance);
+		List<KeyValue> dataList = finance.dateAndQuoteForTwoDays();
 		model.addAttribute("dataList", dataList);
 		return "basicData";
 	}
