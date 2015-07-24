@@ -12,29 +12,38 @@
     });
 
     google.setOnLoadCallback(drawChart);
-
+    
     function drawChart() {
  
         var data = google.visualization.arrayToDataTable([
                                                               ['Data', 'Quotations'],
                                                               <c:forEach items="${dataList}" var="entry">
-                                                                  [ '${entry.key}', ${entry.value} ],
+                                                                  [ new Date(${entry.year}), ${entry.value} ],
                                                               </c:forEach>
                                                         ]);
         var options = {
-            'title' : 'Quotations of the ${name}',
-            is3D : true,
-            pieSliceText: 'label',
-            tooltip :  {showColorCode: true},
-            'width' : 400,
-            'height' : 400
-        };
+            'title' : 'Quotations of the ${finance.name}',
+   	        hAxis: {title: 'Data'},
+            vAxis: {title: 'Quotations'},
+            legend: {position: 'none'},
+            
+            trendlines: {  
+            	0: {
+            	color: 'purple',
+                type: 'polynomial',
+                showR2: true
+              }
+            },
+            hAxis: {
+                format: 'dd/MM'
+              }, 
+        };        
  
-        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        var chart = new google.visualization.ColumnChart(document.getElementById("chart_div"));
         chart.draw(data, options);
     }
 </script>
-<title>Title</title>
+<title>Market watch</title>
 </head>
 
 <body bgcolor="#77dd77">
@@ -47,14 +56,14 @@
 					<section id="content1">
 						<p>
 						<form action="/TrendLineApp/" method="POST">
-						<input type="text" name="search" value="${search}" /> <input
+							<input type="text" name="search" value="${search}" /> <input
 								type="submit" value="Search">
 						</form>
 						</p>
 					</section>
 
 				</div></td>
-			<td><h2>${name}</h2></td>
+			<td><h2>${finance.name}</h2></td>
 		</tr>
 		<tr>
 			<td><div class="tabList">
@@ -81,15 +90,15 @@
 					<section id="content33">
 						<br> Name: ${finance.name} <br> Price: ${finance.price}
 						<br> Peg: ${finance.peg} <br> Currency:
-						${finance.currency} <br>
+						${finance.currency} <br>Symbol ${finance.symbol} <br>
 					</section>
 					<section id="content44">
-						<div id="columnchart_values"></div>
-						<form method="POST">
-							<button type="submit" value="period" name="twoDays">Two
+						<div id="chart_div"></div>
+						<form action="/TrendLineApp/${finance.symbol}" method="POST">
+							<button type="submit" value="twoDays" name="periodOfQuotes">Two
 								days</button>
-							<button type="submit" value="period" name="week">Week</button>
-							<button type="submit" value="period" name="month">Month</button>
+							<button type="submit" value="week" name="periodOfQuotes">Week</button>
+							<button type="submit" value="month" name="periodOfQuotes">Month</button>
 						</form>
 					</section>
 					<section id="content55"></section>

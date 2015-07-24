@@ -8,11 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.cjp.dao.ChartData.KeyValue;
 import com.cjp.service.CompanyManager;
 import com.cjp.service.FinanceYahooService;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.cjp.service.FinanceYahooServiceImpl;
+import com.cjp.utility.Utility.KeyValue;
 
 @Controller
 public class CompanyController {
@@ -23,30 +24,34 @@ public class CompanyController {
 	FinanceYahooService finance;
 
 	@RequestMapping(value = "{ticker}")
-	public String display(@PathVariable("ticker") String ticker, Model model) throws IOException {
-		finance = new FinanceYahooService("LXFT");
+	public String displayAllCompanyInformations(
+			@PathVariable("ticker") String ticker,
+			@RequestParam(value = "periodOfQuotes", required = false) String periodOfQuotes,
+			Model model) throws IOException {
+		if(periodOfQuotes!=null){
+			finance = new FinanceYahooServiceImpl(ticker, periodOfQuotes);
+		} else {
+			finance = new FinanceYahooServiceImpl(ticker, "week");
+		}
 		model.addAttribute("companies", manager.getAllCompanies());
 		model.addAttribute("finance", finance);
-		List<KeyValue> dataList = finance.dateAndQuoteForTwoDays();
+		List<KeyValue> dataList = finance.quotesForLastMont();
 		model.addAttribute("dataList", dataList);
 		return "basicData";
 	}
 
 	@RequestMapping(value = "/")
-	public String displaySelectedCompany(@RequestParam(value = "search", required = false) String search,  Model model) throws IOException {
-		if(search==null) {
-			finance = new FinanceYahooService("LXFT");
+	public String displaySelectedCompany(
+			@RequestParam(value = "search", required = false) String search,
+			Model model) throws IOException {
+		if (search == null) {
 			model.addAttribute("companies", manager.getAllCompanies());
-		} else if(!manager.getSelectedCompanies(search).isEmpty()){
-			finance = new FinanceYahooService("LXFT");
-			model.addAttribute("companies", manager.getSelectedCompanies(search));
+		} else if (!manager.getSelectedCompanies(search).isEmpty()) {
+			model.addAttribute("companies",
+					manager.getSelectedCompanies(search));
 		} else {
-			//throw new IncorrectCompanyNameException();
-		}
 
-		model.addAttribute("finance", finance);
-		List<KeyValue> dataList = finance.dateAndQuoteForTwoDays();
-		model.addAttribute("dataList", dataList);
+		}
 		return "basicData";
 	}
 
