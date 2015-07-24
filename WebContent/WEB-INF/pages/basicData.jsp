@@ -49,7 +49,7 @@
 <body bgcolor="#77dd77">
 	<table align="center">
 		<tr>
-			<td><div class="tabs">
+			<td valign="top"><div class="tabs">
 					<input id="tab1" type="radio" name="tabs" checked> <label
 						for="tab1" title="All">All</label> <input id="tab2" type="radio"
 						name="tabs"> <label for="tab2" title="My">My</label>
@@ -61,12 +61,20 @@
 						</form>
 						</p>
 					</section>
+					<section id="content2">
+                    	<p>
+                    <form action="/TrendLineApp/" method="POST">
+                    <input type="text" name="search" value="${search}" /> <input
+                    type="submit" value="Search">
+                    </form>
+                    	</p>
+                    </section>
 
 				</div></td>
-			<td><h2>${finance.name}</h2></td>
+			<td valign="top"><h2>${finance.name}</h2></td>
 		</tr>
 		<tr>
-			<td><div class="tabList">
+			<td valign="top"><div class="tabList">
 					<input id="tab111" type="radio" name="tabList" checked> <label
 						for="tab111" title="Name">Name</label> <input id="tab222"
 						type="radio" name="tabList"> <label for="tab222"
@@ -81,7 +89,7 @@
 					</section>
 					<section id="content222">Sort by income</section>
 				</div></td>
-			<td><div class="tab">
+			<td valign="top"><div class="tab">
 					<input id="tab33" type="radio" name="tab" checked> <label
 						for="tab33" title="Basic Data">Basic Data</label> <input
 						id="tab44" type="radio" name="tab"> <label for="tab44"
